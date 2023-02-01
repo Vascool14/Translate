@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+*,*::after,*::before {
+    box-sizing: border-box;
+}
+html,body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-tap-highlight-color: transparent;
+}
+.App{
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+}
+.burger {
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+.menuItem {
+    font-size: 0.8rem;
+    padding: 1rem;
+    letter-spacing: 0.03rem;
+    transition: color 0.4s linear;
+    font-weight: 600;
+    margin-left: 1em;
+}
+.lang{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0.5rem;
+}
+select, option{
+    background: transparent;
+    border:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -ms-appearance: none;
+    outline: none;
+}
+select > option{
+    padding: 0 1em;
+}
+#inputText,#result {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+}
+@media  screen and (min-width: 640px) {
+    #choose > div {
+        padding: 0.25em;
+    }
+    #inputText, #result{
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        min-height: 10rem;
+    }
+    #result{
+        right: 0;
+        border-left: 1px solid #888;
+    }
+}
+@keyframes jiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.fadeOutLeft{
+    animation: fadeOutLeft 0.5s linear;
+}
+.fadeOutRight{
+    animation: fadeOutRight 0.5s linear;
+}
+@keyframes fadeOutRight {
+    0% {   transform: translateX(0); opacity: 1;  }
+    50% {   opacity: 0.5;    }
+    100% {   transform: translateX(-48vw);  opacity: 1;   }
+}
+@keyframes fadeOutLeft {
+    0% {    transform: translateX(0); opacity: 1;  }
+    50% {   opacity: 0.5;    }
+    100% {    transform: translateX(48vw);  opacity: 1   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnClass:active {
+    --tw-scale-x: .9;
+    --tw-scale-y: .9;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
